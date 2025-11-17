@@ -1,0 +1,38 @@
+# Output files
+*_listings.json
+response.json
+api_response_debug.json
+debug_page_info.txt
+
+# Lambda deployment packages
+function.zip
+*.zip
+package/
+lambda-package/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# AWS (if you have any local credentials - though you shouldn't!)
+.aws/
+credentials
+config
