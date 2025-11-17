@@ -1204,7 +1204,9 @@ class PoshmarkScraper:
     
     def upload_index_to_s3(self, stats: Dict, total_listings: int, last_backup_time: str) -> bool:
         """
-        Upload the index.html page to S3 with public read access.
+        Upload the index.html page to S3.
+        
+        Note: Public read access is handled by the bucket policy, not ACLs.
         
         Args:
             stats: Dictionary with stats from scraping
@@ -1225,8 +1227,8 @@ class PoshmarkScraper:
                 Bucket=self.s3_bucket,
                 Key=key,
                 Body=html_content.encode('utf-8'),
-                ContentType='text/html',
-                ACL='public-read'  # Make index.html publicly readable
+                ContentType='text/html'
+                # Note: Public access is handled by bucket policy, not ACL
             )
             
             print(f"✅ Index page uploaded to s3://{self.s3_bucket}/{key}")
